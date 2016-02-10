@@ -10,13 +10,18 @@
 #include <string.h>
 #include <stdio.h>
 
-
+/*
+ * Contains the hour, minutes, and period(AM or PM) 
+ */
 struct TimeInformation {
     int hour;
     std::string minutes;
     char period;
 };
 
+/*
+ * Converts the hour to standard Mountain time
+ */
 int get_hour(int &hour) {
     if (hour >= 12) {
         return hour %= 12;
@@ -26,6 +31,9 @@ int get_hour(int &hour) {
     return hour;
 }
 
+/*
+ * Finds AM or PM
+ */
 char get_period(int &hour) {
     char period = '0';
     if (hour < 12) {
@@ -34,6 +42,9 @@ char get_period(int &hour) {
     return 'P';
 }
 
+/*
+ * Gets the time
+ */
 TimeInformation get_time(std::string time, int index) {
 
     TimeInformation time_info;
@@ -56,6 +67,9 @@ TimeInformation get_time(std::string time, int index) {
     return time_info;
 }
 
+/*
+ * Users input
+ */
 std::string get_input() {
     std::string time = "";
     std::cout << "Enter the time: ";
@@ -63,16 +77,22 @@ std::string get_input() {
     return time;
 }
 
-
+/*
+ * Prints Results
+ */
 void print_time(int hour, std::string minutes, char period) {
     std::cout << hour << minutes << " " << period << std::endl;
 }
 
+/*
+ * If user would like to enter another time
+ */
 bool quit() {
     std::string answer = "";
 
     std::cout << "Do you want to enter another time? (y/n) " << std::endl;
-
+    
+    //Make sure they enter valid answer
     while (true) {
         std::cin >> answer;
         if (answer.compare("y") == 0) {
