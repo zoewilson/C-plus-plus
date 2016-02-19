@@ -58,7 +58,7 @@ class Point {
     bool quit() {
         std::string answer = "";
 
-        std::cout << "Do you want to enteer another point in the plane? (y/n) " << std::endl;
+        std::cout << "Do you want to enter another point in the plane? (y/n) " << std::endl;
 
         while (true) {
             std::cin >> answer;
